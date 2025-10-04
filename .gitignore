@@ -1,55 +1,113 @@
-# Prerequisites
-*.d
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+PRATICAL_1A.c
 
-# Linker output
-*.ilk
-*.map
-*.exp
+#include <stdio.h>
 
-# Precompiled Headers
-*.gch
-*.pch
+int main()
+{
+    const float TRAVEL_ALLOWANCE = 1600.0f;
+    const float HRA_PERCENTAGE = 0.1f;
+    const float DA_PERCENTAGE = 0.3f;
+    
+    float basic_salary = 0.0f;
+    
+    printf("Enter basic salary: ");
+    
+    // Check if input is valid
+    if (scanf("%f", &basic_salary) != 1) {
+        printf("Error: Invalid input. Please enter a valid number.\n");
+        return 1;
+    }
+    
+    // Validate input
+    if (basic_salary < 0) {
+        printf("Error: Salary cannot be negative.\n");
+        return 1;
+    }
+    
+    float HRA = HRA_PERCENTAGE * basic_salary;
+    float DA = DA_PERCENTAGE * basic_salary;
+    float gross_salary = basic_salary + HRA + DA + TRAVEL_ALLOWANCE;
+    
+    // Check if salary is integer (with small epsilon for floating point comparison)
+    if (basic_salary == (int)basic_salary) {
+        printf("Gross salary: %d\n", (int)gross_salary);
+    } else {
+        printf("Gross salary: %.2f\n", gross_salary);
+    }
+    
+    return 0;
+}
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
 
-# debug information files
-*.dwo
+PRATICAL_1A.c
+
+#include <stdio.h>
+
+int main()
+{
+    printf("** Number Comparator **\n");
+    printf("***********************\n");
+    
+    float num1, num2, num3;
+    
+    // Get first number with validation
+    printf("Enter the first number: ");
+    if (scanf("%f", &num1) != 1) {
+        printf("Error: Invalid input for first number.\n");
+        return 1;
+    }
+    
+    // Get second number with validation
+    printf("Enter the second number: ");
+    if (scanf("%f", &num2) != 1) {
+        printf("Error: Invalid input for second number.\n");
+        return 1;
+    }
+    
+    // Get third number with validation
+    printf("Enter the third number: ");
+    if (scanf("%f", &num3) != 1) {
+        printf("Error: Invalid input for third number.\n");
+        return 1;
+    }
+    
+    // Find the largest number using clear if-else logic
+    float largest = num1;
+    
+    if (num2 > largest) {
+        largest = num2;
+    }
+    if (num3 > largest) {
+        largest = num3;
+    }
+    
+    // Display result with proper formatting
+    if (largest == (int)largest) {
+        printf("The largest number is: %d\n", (int)largest);
+    } else {
+        printf("The largest number is: %.2f\n", largest);
+    }
+    
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
